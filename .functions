@@ -20,6 +20,33 @@ function mkd() {
 	mkdir -p "$@" && cd "$@"
 }
 
+# Remove a directory structure recursively
+function rmd() {
+  rm -rf -- "$@"
+}
+
+# Generate a .gitkeep file in the current directory
+function keep() {
+  if [ ! -z $1 ]; then
+    local currentDir = `pwd`;
+    cd "$1";
+    touch .gitkeep;
+    cd "${currentDir}";
+  else
+    touch .gitkeep
+  fi
+}
+
+# Search file contents, recursively, for given string or pattern
+function ff() {
+  find . -type f -print0 | xargs -0 grep --ignore-case --line-number "$@"
+}
+
+# Search for a file by name name in the whole directory tree
+function lsub() {
+  find . -type f -iname "$@"
+}
+
 # Change working directory to the top-most Finder window location
 function cdf() { # short for `cdfinder`
 	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')"
