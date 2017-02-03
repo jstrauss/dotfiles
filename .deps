@@ -103,6 +103,7 @@ installcask keka
 installcask parallels-desktop
 installcask skype
 installcask snagit
+installcask spectacle
 installcask spotify
 
 # fonts
@@ -133,6 +134,7 @@ if [[ ! -s ~/.nvm/nvm.sh ]]; then
 fi
 
 npm install -g azure-cli
+npm install -g babel-cli
 npm install -g bower
 npm install -g coffee-script
 npm install -g grunt-cli
@@ -140,6 +142,8 @@ npm install -g gulp
 npm install -g less
 npm install -g lineman
 npm install -g mocha
+npm install -g node-inspector
+npm install -g pug
 npm install -g sass
 npm install -g sass-lint
 npm install -g yo
