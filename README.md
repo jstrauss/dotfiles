@@ -48,6 +48,29 @@ GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 ```
 
+### Sensible macOS defaults
+
+When setting up a new Mac, you may want to use a script to set a variety
+of sensible macOS default functionality. This repo contains a `.macos`,
+which may be sourced:
+
+```bash
+source ~/.macos
+```
+
+If you choose to use this file, make sure that you locate the the
+`General UI/UX` section and update the four commented lines that set the
+ComputerName, HostName, LocalHostName, and NetBIOSName to provide your
+own desired system name:
+
+```bash
+# Set computer name (as done via System Preferences → Sharing)
+# sudo scutil --set ComputerName "<preferred_name>"
+# sudo scutil --set HostName "<preferred_name>"
+# sudo scutil --set LocalHostName "<preferred_name>"
+# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "<preferred_name>"
+```
+
 ## Feedback
 
 Suggestions/improvements are
