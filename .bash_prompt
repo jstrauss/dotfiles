@@ -59,14 +59,16 @@ __scm_prompt() {
     printf '\e]7;%s\a' "$PWD_URL"
   fi
 
-    local pcmode=no
-  local ps1pc_start='\u@\h:\w '
+  local pcmode=no
+  local ps1pc_start=' '
+  # local ps1pc_start='\u@\h:\w '
   local ps1pc_end='\$ '
   local printf_format=' \[$YELLOW\][\[$RESET\]%s\[$YELLOW\]]\[$RESET\]'
 
   case "$#" in
     2|3)  pcmode=yes
-      ps1pc_start="$1"
+      ps1pc_start=' \w '
+      # ps1pc_start="$1"
       ps1pc_end="$2"
       printf_format="${3:-$printf_format}"
     ;;
