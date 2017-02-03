@@ -38,6 +38,10 @@
 	fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
 	# Remove branches that have already been merged with master
 	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+  # Display decorated graph
+  graph = "!f() { git log --graph -n $1 --oneline --decorate --pretty=format:'%C(yellow)%h %Cblue%ad %Creset%s%Cgreen [%cn] %Cred%d' --decorate --date=short --all; }; f"
+  # Show what new commits were created by teh last command (i.e., what came from a pull)
+  new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
   # List git aliases
   alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ / | grep -v ^'alias '
 
@@ -97,3 +101,8 @@
 
 [push]
 	default = simple
+
+# Uncomment and complete this section
+#[user]
+#  name = <author name>
+#  email = <registered git email address>
