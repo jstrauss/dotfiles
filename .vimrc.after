@@ -4,3 +4,15 @@ let NERDTreeShowHidden=1
 
 let g:syntastic_sass_checkers=["sass_lint"]
 let g:syntastic_scss_checkers=["sass_lint"]
+
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set nornu
+  else
+    set relativenumber
+  endif
+endfunction
+
+nnoremap <C-n> :call NumberToggle()<cr>
+
+nnoremap <C-s> :vsplit<cr>
