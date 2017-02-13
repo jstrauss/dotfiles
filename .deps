@@ -99,6 +99,7 @@ installcask camtasia
 installcask copy
 installcask dropbox
 installcask filezilla
+installcask gimp
 installcask keka
 installcask parallels-desktop
 installcask skype
