@@ -333,3 +333,8 @@ function ff() {
 function lsub() {
   find . -type f -iname "$@"
 }
+
+# Reset the MacOS Spotlight indexing while keeping the service enabled (requires sudo)
+function spotreset() {
+  sudo mdutil -E /
+}
