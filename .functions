@@ -324,3 +324,12 @@ function cask-upgrade() {
   done
 }
 
+# Search all files for text within file system
+function ff() {
+    find . -type f -print0 | xargs -0 grep --ignore-case --line-number "$@"
+}
+
+# Do a search, by filename, including all subdirectories
+function lsub() {
+  find . -type f -iname "$@"
+}
