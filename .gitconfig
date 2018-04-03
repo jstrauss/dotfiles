@@ -42,6 +42,10 @@
   graph = "!f() { git log --graph -n $1 --oneline --decorate --pretty=format:'%C(yellow)%h %Cblue%ad %Creset%s%Cgreen [%cn] %Cred%d' --decorate --date=short --all; }; f"
   # Show what new commits were created by teh last command (i.e., what came from a pull)
   new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+  # Move to next commit
+  next = "!sh -c 'git log --reverse --pretty=%H master | awk \"/$(git rev-parse HEAD)/{getline;print}\" | xargs git checkout'"
+  # Move back to most recent previous changeset
+  prev = checkout HEAD^1
   # List git aliases
   alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ / | grep -v ^'alias '
 
