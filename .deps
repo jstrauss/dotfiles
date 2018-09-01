@@ -111,7 +111,7 @@ installcask spotify
 installcask font-source-code-pro
 
 # Remove outdated versions from the cellar
-brew cask cleanup
+# brew cask cleanup (deprecated as of 30-Sep-2018)
 brew cleanup
 
 ###############################################################################
